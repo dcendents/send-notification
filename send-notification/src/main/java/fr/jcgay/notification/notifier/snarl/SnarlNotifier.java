@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 
 import static com.google.common.io.Closeables.closeQuietly;
 
+import java.util.UUID;
+
 public class SnarlNotifier implements DiscoverableNotifier {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SnarlNotifier.class);
@@ -50,7 +52,7 @@ public class SnarlNotifier implements DiscoverableNotifier {
     }
 
     private fr.jcgay.snp4j.Application buildSnarlApp() {
-        return fr.jcgay.snp4j.Application.of(application.id(), application.name());
+        return fr.jcgay.snp4j.Application.of(UUID.randomUUID().toString(), application.name());
     }
 
     @Override
